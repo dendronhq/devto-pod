@@ -7,11 +7,21 @@ import {
 import { Client } from "devto-nodejs-sdk";
 
 type DevToConfig = PublishPodConfigV3 & {
+  /**
+   * This corresponds to your dev.to API key
+   * Instructions on getting API key: {@link https://docs.forem.com/api/#section/Authentication}
+   */
   apiKey: string;
 };
 
 type DevToArticleRequest = {
+  /**
+   * matches the {@link title} field of your note
+   */
   title: string;
+  /**
+   * matches the {@link tags } field of your note
+   */
   tags?: string[];
   published: boolean;
   body_markdown: string;
