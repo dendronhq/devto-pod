@@ -4,6 +4,7 @@
   "main": "lib/index.js",
   "license": "MIT",
   "dependencies": {
+    "@dendronhq/pods-core": "^0.30.1",
     "devto-nodejs-sdk": "^1.0.4"
   }
 }

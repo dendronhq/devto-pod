@@ -1,10 +1,8 @@
 # Dev.to Pod
 
-The Dev.to pod lets you publish your Dendron notes to dev.to.
-
+This pod lets you publish your Dendron notes to dev.to
 
 ## Instructions
-
 
 ### Installation
 ```sh

@@ -1,12 +1,12 @@
 import {
   MarkdownPublishPod,
-  PublishPodConfigV3,
-  PublishPodPlantOptsV3,
-  PublishPodV3,
+  PublishPodConfig,
+  PublishPodPlantOpts,
+  PublishPod,
 } from "@dendronhq/pods-core";
 import { Client } from "devto-nodejs-sdk";
 
-type DevToConfig = PublishPodConfigV3 & {
+type DevToConfig = PublishPodConfig & {
   /**
    * This corresponds to your dev.to API key
    * Instructions on getting API key: {@link https://docs.forem.com/api/#section/Authentication}
@@ -28,11 +28,21 @@ type DevToArticleRequest = {
   canonical_url?: string;
 };
 
-class DevToPod extends PublishPodV3<DevToConfig> {
+class DevToPod extends PublishPod<DevToConfig> {
   static id: string = "dendron.devto";
   static description: string = "publish notes to dev.to";
 
-  async plant(opts: PublishPodPlantOptsV3<DevToConfig>) {
+  get config() {
+      return super.config.concat([
+          {
+              key: "apiKey",
+              description: "dev.to api key",
+              type: "string",
+          }
+      ]);
+  }
+
+  async plant(opts: PublishPodPlantOpts<DevToConfig>) {
     const { config, engine, note } = opts;
 
     // get regular markdown
