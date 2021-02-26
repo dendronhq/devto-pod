@@ -5,6 +5,6 @@
   "license": "MIT",
   "dependencies": {
     "@dendronhq/pods-core": "^0.30.1",
-    "devto-nodejs-sdk": "^1.0.4"
+    "devto-nodejs-sdk": "https://github.com/khaosdoctor/devto-nodejs-sdk.git"
   }
 }
